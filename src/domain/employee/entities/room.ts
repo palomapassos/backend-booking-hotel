@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto';
+import Entity from '../../../core/entities/entity';
 
 type RoomType = {
     name: string;
@@ -10,34 +10,8 @@ type RoomType = {
     isAvailable: boolean;
 };
 
-export default class Room {
-    private id: string;
-    private name: string;
-    private price: string;
-    private hasWifi: boolean;
-    private hasAir: boolean;
-    private hasKitchen: boolean;
-    private isPetFriendly: boolean;
-    private isAvailable: boolean;
-
+export default class Room extends Entity<RoomType> {
     constructor(data: RoomType, id?: string) {
-        const {
-            name,
-            price,
-            hasWifi,
-            hasAir,
-            hasKitchen,
-            isPetFriendly,
-            isAvailable
-        } = data;
-
-        this.name = name;
-        this.price = price;
-        this.hasWifi = hasWifi;
-        this.hasAir = hasAir;
-        this.hasKitchen = hasKitchen;
-        this.isPetFriendly = isPetFriendly;
-        this.isAvailable = isAvailable;
-        this.id = id ?? randomUUID();
+        super(data, id);
     }
 }
