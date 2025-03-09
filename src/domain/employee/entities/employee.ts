@@ -8,7 +8,7 @@ type EmpoloyeeType = {
 };
 
 export default class Employee extends Entity<EmpoloyeeType> {
-    constructor(data: EmpoloyeeType, id?: Identity) {
-        super(data, id);
+    static create(data: EmpoloyeeType, id?: Identity) {
+        return new Employee(data, id);
     }
 }

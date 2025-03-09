@@ -1,6 +1,7 @@
 import Room from '../../employee/entities/room';
 import Entity from '../../../core/entities/entity';
 import Identity from '../../../core/entities/identity';
+import { Optional } from '../../../core/types/optional';
 
 type BookingType = {
     room: Room;
@@ -11,8 +12,8 @@ type BookingType = {
 };
 
 export default class Booking extends Entity<BookingType> {
-    constructor(data: BookingType, id?: Identity) {
-        super(data, id);
+    static create(data: Optional<BookingType, 'isActive'>, id?: Identity) {
+        return new Booking({ ...data, isActive: data.isActive ?? true }, id);
     }
 
     set<K extends keyof BookingType>(key: K, value: BookingType[K]) {
