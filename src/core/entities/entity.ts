@@ -1,7 +1,8 @@
 import { randomUUID } from 'node:crypto';
+import Identity from './identity';
 
 export default abstract class Entity<T> {
-    private entityId: string;
+    private entityId: Identity;
     protected attributes: T;
 
     get id() {
@@ -16,8 +17,8 @@ export default abstract class Entity<T> {
         this.attributes[key] = value;
     }
 
-    protected constructor(attributes: T, id?: string) {
+    protected constructor(attributes: T, id?: Identity) {
         this.attributes = attributes;
-        this.entityId = id ?? randomUUID();
+        this.entityId = id ?? new Identity();
     }
 }
