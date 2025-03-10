@@ -1,10 +1,11 @@
 import Entity from '../../../core/entities/entity';
 import Identity from '../../../core/entities/identity';
 import { Optional } from '../../../core/types/optional';
+import Money from '../../shared/value-objects/money';
 
 type RoomType = {
     name: string;
-    price: string;
+    price: Money;
     hasWifi: boolean;
     hasAir: boolean;
     hasKitchen: boolean;

@@ -1,9 +1,10 @@
 import Entity from '../../../core/entities/entity';
 import Identity from '../../../core/entities/identity';
+import Email from '../../shared/value-objects/email';
 
 type EmpoloyeeType = {
     name: string;
-    email: string;
+    email: Email;
     password: string;
 };
 
